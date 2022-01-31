@@ -8,15 +8,29 @@ const App = () => {
     searched: [],
   });
 
+  const [sortConfig, setSortConfig] = useState({
+    field: "",
+    direction: "",
+  });
+
   useEffect(
     () =>
       getData()
         .then((res) => {
-          setCompanies({ all: res, searched: res });
+          setCompanies({
+            all: [...res, { name: "dsfdsf", numberOfEmployees: 9 }],
+            searched: [...res, { name: "dsfdsf", numberOfEmployees: 9 }],
+          });
         })
         .catch((error) => console.log(error)),
     []
   );
+
+  useEffect(() => {
+    if (sortConfig.field.length > 0 && sortConfig.direction.length > 0) {
+      sortConfig.field === "name" ? sortByName() : sortByEmployees();
+    }
+  }, [sortConfig]);
 
   const createUniques = (data, propName) => {
     return data
@@ -39,12 +53,45 @@ const App = () => {
     }));
   };
 
+  const sortByName = () => {
+    setCompanies((state) => ({
+      ...state,
+      searched: state.searched.sort((prev, next) => {
+        if (prev.name.toLowerCase() < next.name.toLowerCase()) {
+          return sortConfig.direction === "ascending" ? -1 : 1;
+        }
+        if (prev.name.toLowerCase() > next.name.toLowerCase()) {
+          return sortConfig.direction === "ascending" ? 1 : -1;
+        }
+      }),
+    }));
+  };
+
+  const sortByEmployees = () => {
+    setCompanies((state) => ({
+      ...state,
+      searched: state.searched.sort((a, b) =>
+        sortConfig.direction === "ascending"
+          ? a.numberOfEmployees - b.numberOfEmployees
+          : b.numberOfEmployees - a.numberOfEmployees
+      ),
+    }));
+  };
+
+  const handleSubmit = (country, industry, sortField, sortDirection) => {
+    filterData(country, industry);
+    setSortConfig((state) => ({
+      field: sortField,
+      direction: sortDirection,
+    }));
+  };
+
   return (
     <div className="App">
       <SearchBar
         allData={companies.all}
         createUniques={createUniques}
-        filterData={filterData}
+        handleSubmit={handleSubmit}
       />
       <Results results={companies.searched} />
     </div>
