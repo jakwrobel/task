@@ -24,10 +24,9 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
         }}
         className={styles.form}
       >
-        {/* <label htmlFor="country">Country:</label> */}
+
         <input
           type="text"
-          id="country"
           name="country"
           placeholder="Country"
           value={inputValues.country}
@@ -44,7 +43,6 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
         </datalist>
         <input
           type="text"
-          id="industry"
           name="industry"
           placeholder="Industry"
           value={inputValues.industry}
@@ -97,7 +95,6 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
           Search
         </button>
       </form>
-      <div></div>
     </div>
   );
 };
