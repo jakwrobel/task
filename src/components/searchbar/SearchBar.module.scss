@@ -1,6 +1,4 @@
 .wrap {
-  display: flex;
-  flex-direction: column;
   width: 30%;
   padding: 5rem 3rem;
   background: linear-gradient(180deg, white, silver);
@@ -10,6 +8,11 @@
 .title {
   font-family: "Urbanist", sans-serif;
   font-size: 4rem;
+}
+
+.form {
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 .filterOption {
@@ -27,16 +30,16 @@
   margin-bottom: 3rem;
 }
 
-.label{
-    display: block;
-    margin-bottom: 1rem;
-    color: #757575;
-    font-size: 1.8rem;
+.label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #757575;
+  font-size: 1.8rem;
 }
 
 .button {
   border-radius: 2rem;
-  background-color: #b8d9ef;
+  background-color: lighten(#61082b, 5);
   height: 4rem;
   width: 100%;
   border: none;
@@ -46,6 +49,33 @@
 
   &:hover {
     cursor: pointer;
-    background-color: darken(#b8d9ef, 10);
+    background-color: darken(#61082b, 10);
+  }
+}
+
+@media only screen and (max-width: 74em) {
+  .title {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 48em) {
+  .wrap {
+    padding: 5rem 1rem;
+  }
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 36em) {
+  .wrap {
+    width: 100%;
+    order: 1;
+    border-bottom-right-radius: 4rem;
+    border-bottom-left-radius: 4rem;
+    filter: drop-shadow(0 10px 15px black);
   }
 }

@@ -22,6 +22,7 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
             inputValues.sortDirection
           );
         }}
+        className={styles.form}
       >
         {/* <label htmlFor="country">Country:</label> */}
         <input

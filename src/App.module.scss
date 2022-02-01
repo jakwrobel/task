@@ -1,5 +1,11 @@
 .wrap{
     display: flex;
     flex-direction: row;
+    background-color: #61082b;
+}
 
+@media only screen and (max-width: 36em){
+    .wrap{
+        flex-direction: column;
+    }
 }

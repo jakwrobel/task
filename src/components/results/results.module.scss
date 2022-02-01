@@ -1,17 +1,25 @@
 .wrap{
     width:70%;
     min-height: 100vh;
+    padding: 2rem 4rem;
+    box-sizing: border-box;
     background-color: #61082b;
 }
 
 .title{
     text-align: center;
-    // color: #b8d9ef;
     color: white;
     font-family: 'Work Sans', sans-serif;
     font-size: 5rem;
 }
 
-.list{
-    list-style-type: none;
+.itemsWrap{
+    padding: 0;
+}
+
+@media only screen and (max-width:36em){
+    .wrap{
+        width: 100%;
+        order: 2;
+    }
 }
