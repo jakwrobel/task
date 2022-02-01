@@ -4,6 +4,7 @@ import { handleErrors } from "./utils/handleErrors";
 import { SearchBar } from "./components/searchbar/SearchBar";
 import { Results } from "./components/results/Results";
 import { Error } from "./components/error/Error";
+import styles from "./App.module.scss"
 const App = () => {
   const [companies, setCompanies] = useState({
     all: [],
@@ -91,17 +92,20 @@ const App = () => {
     }));
   };
 
+  console.log(companies)
   return (
     <div className="App">
       {error.length === 0 ? (
-        <>
+        <div className={styles.wrap}>
+          <Results results={companies.searched} />
           <SearchBar
             allData={companies.all}
             createUniques={createUniques}
             handleSubmit={handleSubmit}
           />
-          <Results results={companies.searched} />
-        </>
+
+          
+        </div>
       ) : (
         <Error message={error}/>
       )}

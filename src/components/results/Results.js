@@ -1,18 +1,14 @@
 import React from "react";
+import { Item } from "./Item";
 import styles from "./results.module.scss";
 
 export const Results = ({ results }) => {
-
   return (
-    <div>
+    <div className={styles.wrap}>
+      <h2 className={styles.title}>Companies list</h2>
       <ul>
         {results.map((el) => (
-          <li key={results.name}>
-            <span>Name: {el.name}</span>
-            <span>country: {el.country}</span>
-            <span>Industry: {el.industry}</span>
-            <span>Employees: {el.numberOfEmployees}</span>
-          </li>
+          <Item data={el} key={el.id} />
         ))}
       </ul>
     </div>
