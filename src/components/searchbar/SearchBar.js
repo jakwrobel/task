@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import styles from "./SearchBar.module.scss";
 
 export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
   const [inputValues, setInputValues] = useState({
     country: "",
     industry: "",
     sortField: "",
-    sortDirection: "ascending"
+    sortDirection: "ascending",
   });
 
   return (
-    <div>
+    <div className={styles.wrap}>
+      <h2 className={styles.title}>Filter companies</h2>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -21,13 +23,15 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
           );
         }}
       >
-        <label htmlFor="country">Country:</label>
+        {/* <label htmlFor="country">Country:</label> */}
         <input
           type="text"
           id="country"
           name="country"
+          placeholder="Country"
           value={inputValues.country}
           list="countryList"
+          className={styles.filterOption}
           onChange={(e) =>
             setInputValues((state) => ({ ...state, country: e.target.value }))
           }
@@ -41,8 +45,10 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
           type="text"
           id="industry"
           name="industry"
+          placeholder="Industry"
           value={inputValues.industry}
           list="industryList"
+          className={styles.filterOption}
           onChange={(e) =>
             setInputValues((state) => ({ ...state, industry: e.target.value }))
           }
@@ -52,10 +58,11 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
             <option value={name} key={name} />
           ))}
         </datalist>
-        <label htmlFor="sortField">Sort by:</label>
+        <label htmlFor="sortField" className={styles.label}>Sort by:</label>
         <select
           id="sortField"
           value={inputValues.sortField}
+          className={styles.sortOption}
           onChange={(e) =>
             setInputValues((state) => ({ ...state, sortField: e.target.value }))
           }
@@ -67,10 +74,11 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
 
         {inputValues.sortField.length > 0 && (
           <>
-            <label htmlFor="sortDirection">Direction:</label>
+            <label htmlFor="sortDirection" className={styles.label}>Direction:</label>
             <select
               id="sortDirection"
               value={inputValues.sortDirection}
+              className={styles.sortOption}
               onChange={(e) =>
                 setInputValues((state) => ({
                   ...state,
@@ -78,14 +86,15 @@ export const SearchBar = ({ allData, createUniques, handleSubmit }) => {
                 }))
               }
             >
-              
               <option value="ascending">Ascending</option>
               <option value="descending">Descending</option>
             </select>
           </>
         )}
 
-        <button type="submit">Search</button>
+        <button type="submit" className={styles.button}>
+          Search
+        </button>
       </form>
       <div></div>
     </div>

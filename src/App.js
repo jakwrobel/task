@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getData } from "./utils/getData";
+import { handleErrors } from "./utils/handleErrors";
 import { SearchBar } from "./components/searchbar/SearchBar";
 import { Results } from "./components/results/Results";
+import { Error } from "./components/error/Error";
+import styles from "./App.module.scss"
 const App = () => {
   const [companies, setCompanies] = useState({
     all: [],
@@ -13,16 +16,18 @@ const App = () => {
     direction: "",
   });
 
+  const [error, setError] = useState("");
+
   useEffect(
     () =>
       getData()
         .then((res) => {
           setCompanies({
-            all: [...res, { name: "dsfdsf", numberOfEmployees: 9 }],
-            searched: [...res, { name: "dsfdsf", numberOfEmployees: 9 }],
+            all: res,
+            searched: res,
           });
         })
-        .catch((error) => console.log(error)),
+        .catch((error) => handleErrors(error,setError)),
     []
   );
 
@@ -63,6 +68,7 @@ const App = () => {
         if (prev.name.toLowerCase() > next.name.toLowerCase()) {
           return sortConfig.direction === "ascending" ? 1 : -1;
         }
+        return 0
       }),
     }));
   };
@@ -86,14 +92,22 @@ const App = () => {
     }));
   };
 
+  console.log(companies)
   return (
     <div className="App">
-      <SearchBar
-        allData={companies.all}
-        createUniques={createUniques}
-        handleSubmit={handleSubmit}
-      />
-      <Results results={companies.searched} />
+      {error.length === 0 ? (
+        <div className={styles.wrap}>
+          <Results results={companies.searched} />
+          <SearchBar
+            allData={companies.all}
+            createUniques={createUniques}
+            handleSubmit={handleSubmit}
+          />
+          
+        </div>
+      ) : (
+        <Error message={error}/>
+      )}
     </div>
   );
 };

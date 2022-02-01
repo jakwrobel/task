@@ -1,0 +1,51 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 5rem 3rem;
+  background: linear-gradient(180deg, white, silver);
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: "Urbanist", sans-serif;
+  font-size: 4rem;
+}
+
+.filterOption {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 3rem;
+  color: #757575;
+  box-sizing: border-box;
+}
+.sortOption {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 3rem;
+}
+
+.label{
+    display: block;
+    margin-bottom: 1rem;
+    color: #757575;
+    font-size: 1.8rem;
+}
+
+.button {
+  border-radius: 2rem;
+  background-color: #b8d9ef;
+  height: 4rem;
+  width: 100%;
+  border: none;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(#b8d9ef, 10);
+  }
+}
