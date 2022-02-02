@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+# I deleted "build folder from gitIgnore
 
 # misc
 .DS_Store

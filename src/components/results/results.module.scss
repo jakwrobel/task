@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+.wrap {
+  width: 70%;
+
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+  background-color: $c-primary;
+}
+
+.title {
+  text-align: center;
+  color: $c-secondary;
+  font-family: "Work Sans", sans-serif;
+  font-size: 5rem;
+}
+
+.itemsWrap {
+  padding: 0;
+}
+
+@media only screen and (max-width: 36em) {
+  .wrap {
+    width: 100%;
+    order: 2;
+  }
+}
