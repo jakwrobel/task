@@ -6,7 +6,7 @@ export const Error = ({ message }) => {
     <div className={styles.wrap}>
       <h1 className={styles.title}>Error</h1>
       <p className={styles.message}>{message}</p>
-      <p className={styles.instruction}>Refresh the page and try again</p>
+      <p className={styles.instruction}>Refresh the page or try again</p>
     </div>
   );
 };
