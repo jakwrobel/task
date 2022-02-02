@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Item.module.scss";
 
 export const Item = ({ data }) => {
-    console.log(data)
   return (
     <li className={styles.wrap}>
       <div className={styles.info}>Name: {data.name}</div>
