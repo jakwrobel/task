@@ -52,11 +52,11 @@ const App = () => {
   const sortByName = () => {
     setCompanies((state) => ({
       ...state,
-      searched: state.searched.sort((prev, next) => {
-        if (prev.name.toLowerCase() < next.name.toLowerCase()) {
+      searched: state.searched.sort((a, b) => {
+        if (a.name.toLowerCase() < b.name.toLowerCase()) {
           return sortConfig.direction === "ascending" ? -1 : 1;
         }
-        if (prev.name.toLowerCase() > next.name.toLowerCase()) {
+        if (a.name.toLowerCase() > b.name.toLowerCase()) {
           return sortConfig.direction === "ascending" ? 1 : -1;
         }
         return 0;
