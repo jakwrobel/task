@@ -1,22 +1,23 @@
-.wrap{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 15rem;
-    margin: 3rem 0;
-    padding-left: 2rem;
-    background-color: lighten(#61082b, 5);
-    color: white;
-    border-radius: 24px;
-    box-sizing: border-box;
-    box-shadow: 0px 5px 15px rgb(60,8,13);
+@import "../../styles/variables.scss";
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15rem;
+  margin: 3rem 0;
+  padding-left: 2rem;
+  background-color: lighten($c-primary, 5);
+  color: white;
+  border-radius: 24px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 15px rgb(60, 8, 13);
 }
 
-.info{
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
+.info {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
 
-    &:last-child{
-        margin-bottom: 0;
-    }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

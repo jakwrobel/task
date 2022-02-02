@@ -1,11 +1,13 @@
-.wrap{
-    display: flex;
-    flex-direction: row;
-    background-color: #61082b;
+@import "./styles/variables.scss";
+.wrap {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: $c-primary;
 }
 
-@media only screen and (max-width: 36em){
-    .wrap{
-        flex-direction: column;
-    }
+@media only screen and (max-width: 36em) {
+  .wrap {
+    flex-direction: column;
+  }
 }

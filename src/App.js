@@ -94,9 +94,9 @@ const App = () => {
 
   console.log(companies)
   return (
-    <div className="App">
+    <div className={styles.wrap}>
       {error.length === 0 ? (
-        <div className={styles.wrap}>
+        <>
           <Results results={companies.searched} />
           <SearchBar
             allData={companies.all}
@@ -105,7 +105,7 @@ const App = () => {
           />
 
           
-        </div>
+        </>
       ) : (
         <Error message={error}/>
       )}

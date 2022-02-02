@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "./Error.module.scss";
 
 export const Error = ({ message }) => {
   return (
-    <>
-      <div>Error</div>
-      <div>{message}</div>
-      <div>Refresh the page and try again</div>
-    </>
+    <div className={styles.wrap}>
+      <h1 className={styles.title}>Error</h1>
+      <p className={styles.message}>{message}</p>
+      <p className={styles.instruction}>Refresh the page and try again</p>
+    </div>
   );
 };
